@@ -1,6 +1,6 @@
 #include "monty.h"
 
-args = NULL; /* defines global variable */
+args_struct *args = NULL; /* defines global variable */
 
 /**
  * main - main entry point of the program
@@ -10,11 +10,17 @@ args = NULL; /* defines global variable */
  * Return: Always 0.
  */
 
-int main(int ac, char **argv);
+int main(int ac, char **argv)
 {
+	size_t n = 0;
+
 	validate_argv(ac);
 	init_args();
 	get_file_stream(argv[1]);
-	printf("File: %s\n", argv[1]);
+
+	while(getline(&args->lineptr, &n, args->file_stream) != -1)
+	{
+		printf("%s\n", args->lineptr);
+	}
 	return (0);
 }

@@ -8,7 +8,9 @@
 
 void free_args(void)
 {
+	free(args->lineptr);
 	free(args);
+	args->lineptr = NULL;
 	args = NULL;
 }
 
@@ -44,5 +46,6 @@ void init_args(void)
 	if (args == NULL)
 		exit_with_err("Error: malloc failed");
 	args->file_stream = NULL;
+	args->lineptr = NULL;
 }
 

@@ -47,6 +47,7 @@ typedef struct instruction_s
 typedef struct args_struct
 {
 	FILE *file_stream;
+	char *lineptr;
 } args_struct;
 
 

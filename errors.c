@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * print_err - prints error message
@@ -9,7 +9,7 @@
 
 void exit_with_err(char *msg)
 {
-	dprintf(stderr, "%s\n", msg);
+	fprintf(stderr, "%s\n", msg);
 	exit(EXIT_FAILURE);
 }
 
