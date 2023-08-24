@@ -68,6 +68,7 @@ void close_file_stream(void);
 /* errors.c */
 void exit_with_err(char *msg);
 void handle_malloc_err(void);
+void handle_invalid_opcode(char *opcode);
 
 /* tokenize.c */
 void tokenize_line(void);
@@ -75,4 +76,7 @@ void tokenize_line(void);
 /* free_memory.c */
 void free_args(void);
 void free_args_token(void);
+
+/* get_instruction_handler.c */
+void (*get_instruction_handler(char *opcode))(stack_t **, unsigned int);
 #endif

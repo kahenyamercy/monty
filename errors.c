@@ -30,3 +30,19 @@ void handle_malloc_err(void)
 	exit(EXIT_FAILURE);
 }
 
+/**
+ * handle_invalid_opcode - print invalid instruction opcode error
+ * @opcode: pointer to the invalid instruction
+ *
+ * Return: Nothing.
+ */
+
+void handle_invalid_opcode(char *opcode)
+{
+	fprintf(stderr, "L%d: unknown instruction %s\n",
+			args->current_line, opcode);
+	free_args_tokens();
+	free_args();
+	exit(EXIT_FAILURE);
+}
+
