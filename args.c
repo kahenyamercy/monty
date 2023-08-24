@@ -1,5 +1,20 @@
 #include "monty.h"
 
+void free_args_token(void)
+{
+	int i = 0;
+
+	if (args->tokens == NULL)
+		return;
+	while (args->tokens[i])
+	{
+		free(args->tokens[i]);
+		i++;
+	}
+	free(args->tokens);
+	args->tokens = NULL;
+}
+
 /**
  * free_args - frees structure args_struct
  *
@@ -9,8 +24,8 @@
 void free_args(void)
 {
 	free(args->lineptr);
-	free(args);
 	args->lineptr = NULL;
+	free(args);
 	args = NULL;
 }
 
@@ -47,5 +62,8 @@ void init_args(void)
 		exit_with_err("Error: malloc failed");
 	args->file_stream = NULL;
 	args->lineptr = NULL;
+	args->tokens = NULL;
+	args->current_line = 0;
+	args->token_count = 0;
 }
 

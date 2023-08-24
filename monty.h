@@ -48,6 +48,9 @@ typedef struct args_struct
 {
 	FILE *file_stream;
 	char *lineptr;
+	int current_line;
+	char **tokens;
+	int token_count;
 } args_struct;
 
 
@@ -57,6 +60,7 @@ extern args_struct *args;
 void validate_argv(int ac);
 void init_args(void);
 void free_args(void);
+void free_args_token(void);
 
 /* file_stream.c */
 void get_file_stream(char *filename);
@@ -64,4 +68,9 @@ void handle_stream_failed(char *filename);
 
 /* errors.c */
 void exit_with_err(char *msg);
+void handle_malloc_err(void);
+
+/* tokenize.c */
+void tokenize_line(void);
+
 #endif

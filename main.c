@@ -13,14 +13,25 @@ args_struct *args = NULL; /* defines global variable */
 int main(int ac, char **argv)
 {
 	size_t n = 0;
+	int i = 0;
 
 	validate_argv(ac);
 	init_args();
 	get_file_stream(argv[1]);
 
-	while(getline(&args->lineptr, &n, args->file_stream) != -1)
+	while (getline(&args->lineptr, &n, args->file_stream) != -1)
 	{
-		printf("%s\n", args->lineptr);
+		args->current_line += 1;
+		printf("Line %d: %s", args->current_line, args->lineptr);
+		tokenize_line();
+		while (args->tokens[i] != NULL)
+		{
+			printf("Token [%d]: %s\n", i, args->tokens[i]);
+			i++;
+		}
+		i = 0;
+		free_args_token();
 	}
+	free_args();
 	return (0);
 }
