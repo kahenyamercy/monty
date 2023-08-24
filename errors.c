@@ -41,7 +41,8 @@ void handle_invalid_opcode(char *opcode)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n",
 			args->current_line, opcode);
-	free_args_tokens();
+	close_file_stream();
+	free_args_token();
 	free_args();
 	exit(EXIT_FAILURE);
 }

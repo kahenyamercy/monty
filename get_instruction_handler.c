@@ -20,9 +20,10 @@ void (*get_instruction_handler(char *opcode))(stack_t **, unsigned int)
 
 	while (instructionList[i].opcode != NULL)
 	{
-		if (strcmp(instructionList.opcode, opcode) == 0)
+		if (strcmp(instructionList[i].opcode, opcode) == 0)
 			return (instructionList[i].f);
 		i++;
 	}
 	handle_invalid_opcode(opcode);
+	return (NULL); /* never reached */
 }

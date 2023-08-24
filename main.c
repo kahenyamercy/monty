@@ -14,6 +14,8 @@ int main(int ac, char **argv)
 {
 	size_t n = 0;
 	int i = 0;
+	void (*handle_instruction)(stack_t **, unsigned int);
+	stack_t **stack = NULL;
 
 	validate_argv(ac);
 	init_args();
@@ -30,6 +32,8 @@ int main(int ac, char **argv)
 			i++;
 		}
 		i = 0;
+		handle_instruction = get_instruction_handler(args->tokens[0]);
+		handle_instruction(stack, args->current_line);
 		free_args_token();
 	}
 	close_file_stream();

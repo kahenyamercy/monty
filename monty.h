@@ -48,7 +48,7 @@ typedef struct args_struct
 {
 	FILE *file_stream;
 	char *lineptr;
-	int current_line;
+	unsigned int current_line;
 	char **tokens;
 	int token_count;
 } args_struct;
