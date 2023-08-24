@@ -79,4 +79,7 @@ void free_args_token(void);
 
 /* get_instruction_handler.c */
 void (*get_instruction_handler(char *opcode))(stack_t **, unsigned int);
+
+/* Testing */
+void push(stack_t **stack, unsigned int current_line);
 #endif
