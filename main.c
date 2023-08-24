@@ -13,9 +13,6 @@ args_struct *args = NULL; /* defines global variable */
 int main(int ac, char **argv)
 {
 	size_t n = 0;
-	int i = 0;
-	void (*handle_instruction)(stack_t **, unsigned int);
-	stack_t **stack = NULL;
 
 	validate_argv(ac);
 	init_args();
@@ -24,16 +21,8 @@ int main(int ac, char **argv)
 	while (getline(&args->lineptr, &n, args->file_stream) != -1)
 	{
 		args->current_line += 1;
-		printf("Line %d: %s", args->current_line, args->lineptr);
 		tokenize_line();
-		while (args->tokens[i] != NULL)
-		{
-			printf("Token [%d]: %s\n", i, args->tokens[i]);
-			i++;
-		}
-		i = 0;
-		handle_instruction = get_instruction_handler(args->tokens[0]);
-		handle_instruction(stack, args->current_line);
+		execute_instruction();
 		free_args_token();
 	}
 	close_file_stream();
