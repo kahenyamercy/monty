@@ -59,8 +59,6 @@ extern args_struct *args;
 /* args.c */
 void validate_argv(int ac);
 void init_args(void);
-void free_args(void);
-void free_args_token(void);
 
 /* file_stream.c */
 void get_file_stream(char *filename);
@@ -74,4 +72,7 @@ void handle_malloc_err(void);
 /* tokenize.c */
 void tokenize_line(void);
 
+/* free_memory.c */
+void free_args(void);
+void free_args_token(void);
 #endif

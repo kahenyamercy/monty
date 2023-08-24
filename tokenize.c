@@ -1,5 +1,14 @@
 #include "monty.h"
 
+/**
+ * tokenize_line - tokenizes file line read
+ *
+ * Description: the function accesses the lineptr read by getline,
+ * tokenizes it to word tokens and adds the to an array
+ *
+ * Return: Nothing.
+ */
+
 
 void tokenize_line(void)
 {
@@ -23,7 +32,10 @@ void tokenize_line(void)
 
 	args->tokens = malloc(sizeof(char *) * (args->token_count + 1));
 	if (args->tokens == NULL)
+	{
+		free(lineptr_cpy);
 		handle_malloc_err();
+	}
 
 	strcpy(lineptr_cpy, args->lineptr);
 	token = strtok(lineptr_cpy, delims);
