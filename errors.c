@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * print_err - prints error message
+ * exit_with_err - prints error message
  * @msg: pointer to the error string
  *
  * Return: Nothing.

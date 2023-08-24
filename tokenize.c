@@ -12,9 +12,7 @@
 
 void tokenize_line(void)
 {
-	char *lineptr_cpy;
-	char *delims = " \n";
-	char *token = NULL;
+	char *lineptr_cpy = NULL, *delims = " \n", *token = NULL;
 	int i = 0;
 
 	lineptr_cpy = malloc(sizeof(char) * (strlen(args->lineptr) + 1));
@@ -24,7 +22,7 @@ void tokenize_line(void)
 
 	args->token_count = 0;
 	token = strtok(lineptr_cpy, delims);
-	while(token != NULL)
+	while (token != NULL)
 	{
 		args->token_count += 1;
 		token = strtok(NULL, delims);
