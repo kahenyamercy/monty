@@ -41,14 +41,16 @@ void free_args(void)
  */
 void free_stack(void)
 {
-	if (args->stack == NULL)
+	stack_t *current_node = args->stack;
+
+	if (current_node == NULL)
 		return;
 
-	while (args->stack != NULL)
+	while (current_node != NULL)
 	{
-		printf("hello\n");
-		free(args->stack);
-		args->stack = (args->stack)->next;
+		stack_t *next_node = current_node->next;
+		free(current_node);
+		current_node = next_node;
 	}
 	args->stack = NULL;
 }
