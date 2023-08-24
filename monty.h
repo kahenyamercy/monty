@@ -102,6 +102,7 @@ void tokenize_line(void);
 /* free_memory.c */
 void free_args(void);
 void free_args_token(void);
+void free_stack(void);
 
 /* get_instruction_handler.c */
 void (*get_instruction_handler(char *opcode))(stack_t **, unsigned int);
