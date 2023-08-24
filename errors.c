@@ -26,6 +26,7 @@ void exit_with_err(char *msg)
 void handle_malloc_err(void)
 {
 	fprintf(stderr, "Error: malloc failed");
+	free_args_token();
 	free_args();
 	exit(EXIT_FAILURE);
 }
@@ -46,4 +47,17 @@ void handle_invalid_opcode(char *opcode)
 	free_args();
 	exit(EXIT_FAILURE);
 }
+/**
+ * handle_push_arg - handle error
+ * @line_number: line number
+ * Return: none
+ */
+void handle_push_arg(unsigned int line_number)
+{
+	fprintf(stderr, "L%d: usage: push integer\n", line_number);
+	close_file_stream();
+	free_args_token();
+	free_args();
+	exit(EXIT_FAILURE);
 
+}

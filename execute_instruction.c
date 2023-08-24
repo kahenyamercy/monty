@@ -11,9 +11,8 @@
 
 void execute_instruction(void)
 {
-	stack_t **stack = NULL;
 	void (*handle_instruction)(stack_t **, unsigned int);
 
 	handle_instruction = get_instruction_handler(args->tokens[0]);
-	handle_instruction(stack, args->current_line);
+	handle_instruction(&(args->stack), args->current_line);
 }

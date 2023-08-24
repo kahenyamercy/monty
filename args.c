@@ -37,5 +37,6 @@ void init_args(void)
 	args->tokens = NULL;
 	args->current_line = 0;
 	args->token_count = 0;
+	args->stack = NULL;
 }
 

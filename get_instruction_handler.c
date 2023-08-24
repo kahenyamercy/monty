@@ -14,6 +14,20 @@ void (*get_instruction_handler(char *opcode))(stack_t **, unsigned int)
 {
 	instruction_t instructionList[] = {
 		{"push", &push},
+		{"pall", &pall},
+		{"pop", &pop},
+		{"swap", &swap},
+		{"add", &add},
+		{"nop", &nop},
+		{"sub", &sub},
+		{"div", &div_op},
+		{"mul", &mul_op},
+		{"pint", &pint_op},
+		{"mod", &mod_op},
+		{"pchar", &pchar_op},
+		{"pstr", &pstr_op},
+		{"rotl", &rotl_op},
+		{"rotr", &rotr_op},
 		{NULL, NULL}
 	};
 	int i = 0;

@@ -51,6 +51,7 @@ typedef struct args_struct
 	unsigned int current_line;
 	char **tokens;
 	int token_count;
+	stack_t *stack;
 } args_struct;
 
 
@@ -63,6 +64,31 @@ void init_args(void);
 /* file_stream.c */
 void get_file_stream(char *filename);
 void handle_stream_failed(char *filename);
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+
+/* errors.c */
+void exit_with_err(char *msg);
+void handle_push_arg(unsigned int line_number);
+
+/*opcodes*/
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void div_op(stack_t **stack, unsigned int line_number);
+void mul_op(stack_t **stack, unsigned int line_number);
+void pint_op(stack_t **stack, unsigned int line_number);
+void mod_op(stack_t **stack, unsigned int line_number);
+void pchar_op(stack_t **stack, unsigned int line_number);
+void pstr_op(stack_t **stack, unsigned int line_number);
+void rotl_op(stack_t **stack, unsigned int line_number);
+void rotr_op(stack_t **stack, unsigned int line_number);
+
+/*checks*/
+int is_number(const char *str);
 void close_file_stream(void);
 
 /* errors.c */
