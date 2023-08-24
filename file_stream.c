@@ -30,6 +30,23 @@ void get_file_stream(char *filename)
 
 	stream = fopen(filename, "r");
 	if (stream == NULL)
+	{
+		fclose(stream);
 		handle_stream_failed(filename);
+	}
 	args->file_stream = stream;
+}
+
+
+/**
+ * close_file_stream - closes a file stream
+ *
+ * Return: Nothing.
+ */
+
+void close_file_stream(void)
+{
+	if (args->file_stream == NULL)
+		return;
+	fclose(args->file_stream);
 }

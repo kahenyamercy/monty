@@ -18,9 +18,14 @@ int main(int ac, char **argv)
 	init_args();
 	get_file_stream(argv[1]);
 
-	while(getline(&args->lineptr, &n, args->file_stream) != -1)
+	while (getline(&args->lineptr, &n, args->file_stream) != -1)
 	{
-		printf("%s\n", args->lineptr);
+		args->current_line += 1;
+		tokenize_line();
+		execute_instruction();
+		free_args_token();
 	}
+	close_file_stream();
+	free_args();
 	return (0);
 }

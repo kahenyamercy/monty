@@ -1,18 +1,5 @@
 #include "monty.h"
 
-/**
- * free_args - frees structure args_struct
- *
- * Return: Nothing.
- */
-
-void free_args(void)
-{
-	free(args->lineptr);
-	free(args);
-	args->lineptr = NULL;
-	args = NULL;
-}
 
 /**
  * validate_argv - checks for program usage format
@@ -47,5 +34,9 @@ void init_args(void)
 		exit_with_err("Error: malloc failed");
 	args->file_stream = NULL;
 	args->lineptr = NULL;
+	args->tokens = NULL;
+	args->current_line = 0;
+	args->token_count = 0;
+	args->stack = NULL;
 }
 

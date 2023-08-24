@@ -48,6 +48,10 @@ typedef struct args_struct
 {
 	FILE *file_stream;
 	char *lineptr;
+	unsigned int current_line;
+	char **tokens;
+	int token_count;
+	stack_t *stack;
 } args_struct;
 
 
@@ -56,7 +60,6 @@ extern args_struct *args;
 /* args.c */
 void validate_argv(int ac);
 void init_args(void);
-void free_args(void);
 
 /* file_stream.c */
 void get_file_stream(char *filename);
@@ -65,6 +68,7 @@ ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 /* errors.c */
 void exit_with_err(char *msg);
+void handle_push_arg(unsigned int line_number);
 
 /*opcodes*/
 void push(stack_t **stack, unsigned int line_number);
@@ -85,4 +89,26 @@ void rotr_op(stack_t **stack, unsigned int line_number);
 
 /*checks*/
 int is_number(const char *str);
+void close_file_stream(void);
+
+/* errors.c */
+void exit_with_err(char *msg);
+void handle_malloc_err(void);
+void handle_invalid_opcode(char *opcode);
+
+/* tokenize.c */
+void tokenize_line(void);
+
+/* free_memory.c */
+void free_args(void);
+void free_args_token(void);
+
+/* get_instruction_handler.c */
+void (*get_instruction_handler(char *opcode))(stack_t **, unsigned int);
+
+/* execute_instruction.c */
+void execute_instruction(void);
+
+/* Testing */
+void push(stack_t **stack, unsigned int current_line);
 #endif
