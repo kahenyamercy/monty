@@ -20,7 +20,6 @@ void tokenize_line(void)
 		args->token_count += 1;
 		token = strtok(NULL, delims);
 	}
-	printf("Tokens count: %d\n", args->token_count);
 
 	args->tokens = malloc(sizeof(char *) * (args->token_count + 1));
 	if (args->tokens == NULL)
@@ -32,9 +31,11 @@ void tokenize_line(void)
 	{
 		args->tokens[i] = malloc(sizeof(char) * (strlen(token) + 1));
 		if (args->tokens[i] == NULL)
+		{
+			free(lineptr_cpy);
 			handle_malloc_err();
+		}
 		strcpy(args->tokens[i], token);
-		printf("args->tokens[%d] = %s\n", i, args->tokens[i]);
 		token = strtok(NULL, delims);
 		i++;
 	}

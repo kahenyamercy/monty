@@ -65,6 +65,7 @@ void free_args_token(void);
 /* file_stream.c */
 void get_file_stream(char *filename);
 void handle_stream_failed(char *filename);
+void close_file_stream(void);
 
 /* errors.c */
 void exit_with_err(char *msg);

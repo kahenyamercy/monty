@@ -32,6 +32,7 @@ int main(int ac, char **argv)
 		i = 0;
 		free_args_token();
 	}
+	close_file_stream();
 	free_args();
 	return (0);
 }
