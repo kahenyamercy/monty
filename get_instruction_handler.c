@@ -1,14 +1,5 @@
 #include "monty.h"
 
-void handle_invalid_opcode(char *opcode)
-{
-	fprintf(stderr, "L%d: unknown instruction %s\n",
-			args->current_line, opcode);
-	free_args_tokens();
-	free_args();
-	exit(EXIT_FAILURE);
-}
-
 /**
  * get_instruction_handler - selects the prefered function to be
  *	called based on the the opcode found
