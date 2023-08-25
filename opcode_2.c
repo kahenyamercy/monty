@@ -49,7 +49,8 @@ void div_op(stack_t **stack, unsigned int line_number)
 	pop(stack, line_number);
 }
 /**
- * mul_op - Multiplies the second top element with the top element of the stack.
+ * mul_op - Multiplies the second top element
+ * with the top element of the stack.
  * @stack: Pointer to the stack.
  * @line_number: Line number in the file.
  */

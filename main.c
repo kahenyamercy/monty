@@ -1,7 +1,5 @@
 #include "monty.h"
-
 args_struct *args = NULL; /* defines global variable */
-
 /**
  * main - main entry point of the program
  * @ac: count of arguments passed to the program

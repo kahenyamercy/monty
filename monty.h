@@ -39,6 +39,11 @@ typedef struct instruction_s
 /**
  * struct args_struct - a structure to hold program arguments
  * @file_stream: file pointer to the currently opened file
+ * @lineptr: line pointer
+ * @current_line: current line
+ * @tokens: tokenised strings
+ * @token_count: count of tokenised string
+ * @stack: pointer to stack
  *
  * Description: holds all the arguments required
  * for the program
@@ -56,7 +61,6 @@ typedef struct args_struct
 
 
 extern args_struct *args;
-
 /* args.c */
 void validate_argv(int ac);
 void init_args(void);

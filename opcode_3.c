@@ -68,7 +68,8 @@ void pchar_op(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pstr_op - Prints the string starting at the top of the stack as ASCII characters.
+ * pstr_op - Prints the string starting at the top
+ * of the stack as ASCII characters.
  * @stack: Pointer to the top of the stack.
  * @line_number: Line number in the file.
  */
@@ -77,7 +78,7 @@ void pstr_op(stack_t **stack, unsigned int line_number)
 	stack_t *current = *stack;
 	(void)line_number;
 
-	while (current != NULL && current->n != 0 && 
+	while (current != NULL && current->n != 0 &&
 		current->n >= 0 && current->n <= 127)
 	{
 		if (current->n == 10)
