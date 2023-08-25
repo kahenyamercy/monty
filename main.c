@@ -1,4 +1,5 @@
 #include "monty.h"
+int main(int ac, char **argv);
 args_struct *args = NULL; /* defines global variable */
 /**
  * main - main entry point of the program
